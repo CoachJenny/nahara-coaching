@@ -8,22 +8,56 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-display' });
 
 export const metadata: Metadata = {
-  title: 'Nahara Coaching - Coaching de Carrière',
-  description: 'Coaching de carrière pour vous aider à trouver votre voie et à vous épanouir professionnellement',
+  metadataBase: new URL('https://naharacoaching.com'),
+  title: {
+    default: 'Nahara Coaching - Coach Professionnelle Certifiée | Développement de Carrière',
+    template: '%s | Nahara Coaching'
+  },
+  description: 'Coach professionnelle certifiée spécialisée en développement de carrière et intelligence émotionnelle. Accompagnement personnalisé pour reconversion, évolution professionnelle et leadership.',
+  keywords: ['coaching professionnel', 'coach carrière', 'reconversion professionnelle', 'développement personnel', 'intelligence émotionnelle', 'leadership', 'orientation professionnelle', 'bilan de compétences', 'coaching cadres', 'coaching dirigeants'],
+  authors: [{ name: 'Nahara Coaching' }],
+  creator: 'Nahara Coaching',
+  publisher: 'Nahara Coaching',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    url: 'https://naharacoaching.com',
+    siteName: 'Nahara Coaching',
+    title: 'Nahara Coaching - Coach Professionnelle Certifiée',
+    description: 'Accompagnement professionnel personnalisé pour votre développement de carrière et votre épanouissement professionnel.',
     images: [
       {
-        url: 'https://bolt.new/static/og_default.png',
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Nahara Coaching - Coach Professionnelle',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    images: [
-      {
-        url: 'https://bolt.new/static/og_default.png',
-      },
-    ],
+    title: 'Nahara Coaching - Coach Professionnelle Certifiée',
+    description: 'Accompagnement professionnel personnalisé pour votre développement de carrière.',
+    images: ['/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
   },
 };
 
