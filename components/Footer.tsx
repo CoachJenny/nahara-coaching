@@ -1,0 +1,181 @@
+"use client";
+
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { Linkedin, Mail, Heart } from 'lucide-react';
+import { LegalNotice } from './LegalNotice';
+
+export const Footer: React.FC = () => {
+  const [isLegalNoticeOpen, setIsLegalNoticeOpen] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <footer className="bg-primary text-white pt-16 pb-8">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-4 gap-8 mb-12">
+          {/* Logo et description */}
+          <div className="md:col-span-1">
+            <Link href="/" className="block mb-4">
+              <img
+                src="/LogoNaharaComplet.png"
+                alt="Nahara Coaching"
+                className="h-12 w-auto"
+              />
+            </Link>
+            <p className="text-white/70 mb-6">
+              Coaching narratif et intelligence émotionnelle pour transformer vos blocages en leviers.
+            </p>
+            <div className="flex space-x-4">
+              <a 
+                href="https://www.linkedin.com/in/jennifer-perrault-coach" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a 
+                href="mailto:jennifer.perrault@nahara-coaching.com" 
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Liens rapides */}
+          <div className="md:col-span-1">
+            <h3 className="text-lg font-semibold mb-4">Liens rapides</h3>
+            <ul className="space-y-2">
+              <li>
+                <button
+                  onClick={() => scrollToSection('offers')}
+                  className="text-white/70 hover:text-accent transition-colors text-left"
+                >
+                  Offres de coaching
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection('quiz')}
+                  className="text-white/70 hover:text-accent transition-colors text-left"
+                >
+                  Quiz d'orientation
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection('faq')}
+                  className="text-white/70 hover:text-accent transition-colors text-left"
+                >
+                  FAQ
+                </button>
+              </li>
+              <li>
+                <a 
+                  href="https://calendly.com/jennifer-perrault/call-decouverte" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-accent transition-colors"
+                >
+                  Réserver un appel
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div className="md:col-span-1">
+            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <ul className="space-y-2">
+              <li>
+                <a 
+                  href="mailto:jennifer.perrault@nahara-coaching.com"
+                  className="text-white/70 hover:text-accent transition-colors"
+                >
+                  jennifer.perrault@nahara-coaching.com
+                </a>
+              </li>
+              <li className="text-white/70">06 48 14 49 45</li>
+              <li className="text-white/70">Paris, France</li>
+            </ul>
+          </div>
+
+          {/* Documents légaux */}
+          <div className="md:col-span-1">
+            <h3 className="text-lg font-semibold mb-4">Documents légaux</h3>
+            <ul className="space-y-2">
+              <li>
+                <button
+                  onClick={() => setIsLegalNoticeOpen(true)}
+                  className="text-white/70 hover:text-accent transition-colors text-left"
+                >
+                  Mentions légales
+                </button>
+              </li>
+              <li>
+                <Link
+                  href="/politique-de-confidentialite"
+                  className="text-white/70 hover:text-accent transition-colors"
+                >
+                  Politique de confidentialité
+                </Link>
+              </li>
+              <li>
+                <a 
+                  href="/cgv.pdf.pdf" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-accent transition-colors"
+                >
+                  CGV
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/charte-ethique-aicc.pdf.pdf" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-accent transition-colors"
+                >
+                  Charte éthique et déontologique de l'AICC
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Certifications and Affiliations Banner */}
+        <div className="border-t border-white/10 pt-8 mb-8">
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            <img src="/LogoHEC.png" alt="Certification HEC" className="h-12 w-auto" />
+            <img src="/LogoEssec.png" alt="Certification ESSEC" className="h-12 w-auto" />
+            <img src="/LOGO-EQ360.jpeg" alt="Certification EQ360" className="h-12 w-auto" />
+            <img src="/LOGO-EQ-i.png" alt="Certification EQ-i" className="h-12 w-auto" />
+            <img src="/LogoAICC.png" alt="Membre AICC" className="h-12 w-auto" />
+            <img src="/LogoArtisans.png" alt="Membre Artisans" className="h-12 w-auto" />
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center">
+          <div className="text-white/40 text-xs flex items-center justify-center">
+            <span>Fait avec</span>
+            <Heart className="w-3 h-3 mx-1 text-accent" />
+            <span>par Jennifer Perrault</span>
+          </div>
+        </div>
+      </div>
+
+      <LegalNotice 
+        isOpen={isLegalNoticeOpen}
+        onClose={() => setIsLegalNoticeOpen(false)}
+      />
+    </footer>
+  );
+};
